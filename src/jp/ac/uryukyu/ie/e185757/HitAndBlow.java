@@ -23,6 +23,8 @@ public class HitAndBlow {
                 System.out.print(a.get(i));
             }
 
+            int count = 1;
+
             while(true) {
                 System.out.println("　　４桁の数字を当ててください");
                 Scanner scan = new Scanner(System.in);
@@ -61,8 +63,36 @@ public class HitAndBlow {
                     continue;
                 }
 
+                int[] user = new int[4];
+                for(int i = 0; i < length; i++) {
+                    user[i] = Integer.parseInt(str.substring(i,(i+1)));
+                }
 
+                int hit = 0;
+                for(int i = 0; i < 4; i++) {
+                    if(user[i] == a.get(i)) {
+                        hit++;
+                    }
+                }
+
+                int blow = 0;
+                for(int i = 0; i < 4; i++) {
+                    for(int j = 0; j < 4; j++) {
+                        if(user[i] == a.get(j)) {
+                            blow++;
+                        }
+                    }
+                }
+
+                if(hit == 4) {
+                    System.out.println("正解！" + count + "回目で正解！");
+                    System.out.println(" ");
+                    break;
+                } else{
+                    System.out.println(hit + "hit," + (blow - hit) + "blow");
+                    System.out.println(" ");
+                    count++;
+                }
             }
         }
-
     }
