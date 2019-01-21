@@ -54,7 +54,10 @@ public class HitAndBlow {
                 continue;
             }
 
-
+/**
+ * hitとblowの判定をするコード
+ *
+ */
             int[] user = new int[4];
             for (int i = 0; i < length; i++) {
                 user[i] = Integer.parseInt(str.substring(i, (i + 1)));
